@@ -1,0 +1,7 @@
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\bin\Debug\TaskList.exe.config
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\bin\Debug\TaskList.exe
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\bin\Debug\TaskList.pdb
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\obj\Debug\TaskList.csprojAssemblyReference.cache
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\obj\Debug\TaskList.csproj.CoreCompileInputs.cache
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\obj\Debug\TaskList.exe
+C:\Users\16164\Documents\Grand Circus Labs\Week2Capstone\TaskList\TaskList\obj\Debug\TaskList.pdb
