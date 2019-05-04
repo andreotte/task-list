@@ -10,11 +10,6 @@ namespace TaskList
     {
         private List<Task> _tasks = new List<Task>();
 
-        //public TaskApp(List<Task> tasks)
-        //{
-        //    _tasks = tasks;
-        //}
-
         public void AddTask(string name, string description, DateTime dueDate)
         {
             Task task = new Task(name, description, dueDate);
@@ -23,6 +18,7 @@ namespace TaskList
 
         public void ListTasks()
         {
+            Console.WriteLine();
             List<string> taskNames = new List<string>();
             //condition ? consequent : alternative
             string yes = "yes";
@@ -31,18 +27,20 @@ namespace TaskList
 
 
             {
-                taskNames.Add($"{task.Name}, {task.Description}, {task.DueDate}, {(task.Completed ? yes : no)}");
+                taskNames.Add($"TASK: {task.Name}, DUE DATE: {task.DueDate}, COMPLETED: {(task.Completed ? yes : no)}, DESCRIPTION: {task.Description}");
             }
 
-            Menu menu = new Menu(taskNames);
+            Menu menu = new Menu(taskNames, "TASK NAMES");
             menu.PrintMenu();
         }
 
         public void DeleteTask()
         {
             ListTasks();
+
             Console.WriteLine("What task would you like mto delete?");
             int delete = int.Parse(Console.ReadLine());
+            Console.Clear();
 
             // confirm that the user wants to actually delete
             Console.WriteLine("Are you sure???");
@@ -50,26 +48,24 @@ namespace TaskList
             if (answer == "y" || answer == "yes")
             {
                 _tasks.RemoveAt(delete - 1);
+                Console.Clear();
             }
             else
             {
+                Console.Clear();
                 Console.WriteLine("You didn't say yes, so we are assuming no.");
+                Console.WriteLine();
 
             }
         }
 
         public void MarkTaskComplete()
         {
+            Console.WriteLine();
             ListTasks();
             Console.WriteLine("What task is completed?");
             int completed = int.Parse(Console.ReadLine());
             _tasks[completed - 1].Completed = ! _tasks[completed - 1].Completed;
-
-            //bool andre = true;
-            //andre = !andre;
-
-
         }
-
     }
 }

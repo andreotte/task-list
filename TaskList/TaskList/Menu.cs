@@ -10,35 +10,30 @@ namespace TaskList
     {
         public int MenuItem { get; }
         public List<string> MenuItems { get; }
+        public string MenuTitle { get; }
 
-        public Menu(List<string> MenuItems)
+        public Menu(List<string> MenuItems, string MenuTitle)
         {
             this.MenuItems = MenuItems;
+            this.MenuTitle = MenuTitle;
         }
 
         public void PrintMenu()
         {
+            Console.WriteLine(MenuTitle);
             for(int i = 1; i < (MenuItems.Count + 1); i++)
             {
-                Console.WriteLine($"{i}) {MenuItems[i - 1]} ");
+                Console.WriteLine($"{i}) {MenuItems[i - 1]}");
             }
+            Console.WriteLine();
         }
 
         public int GetUserInput()
         {
-            Console.WriteLine("enter a number");
+            Console.WriteLine("Select a menu item.");
             int.TryParse(Console.ReadLine(), out int userInput);
-
-            //try
-            //{
-            //    int.Parse(userInput);
-            //}
-            //catch (Exception)
-            //{
-
-            //    Console.WriteLine("invalid input");
-            //    GetUserInput();
-            //}
+            Console.Clear();
+            Console.WriteLine();
 
             if ( userInput < 1 || userInput > MenuItems.Count)
             {

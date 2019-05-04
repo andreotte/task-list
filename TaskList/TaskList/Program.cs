@@ -14,7 +14,7 @@ namespace TaskList
         static void Main(string[] args)
         {
             List<string> menuItems = new List<string> { "List tasks", "Add task", "Delete task", "Mark task complete", "Quit" };
-            Menu menu = new Menu(menuItems);
+            Menu menu = new Menu(menuItems, "MAIN MENU");
             menu.PrintMenu();
             TaskApp printTasks = new TaskApp();
             printTasks.AddTask("make bed", "make bed really well", DateTime.Now);
@@ -32,6 +32,7 @@ namespace TaskList
                     case 1:
                         Console.Clear();
                         printTasks.ListTasks();
+                        menu.PrintMenu();
                         break;
                     case 2:
                         Console.WriteLine("Please enter task name: ");
@@ -41,13 +42,15 @@ namespace TaskList
                         Console.WriteLine("Please enter task due date: ");
                         DateTime taskDueDate = DateTime.Parse(Console.ReadLine());
                         printTasks.AddTask(taskName, taskDescription, taskDueDate);
-                        break;
-                    case 3:
-                        printTasks.DeleteTask();
                         Console.Clear();
                         menu.PrintMenu();
                         break;
+                    case 3:
+                        printTasks.DeleteTask();
+                        menu.PrintMenu();
+                        break;
                     case 4:
+                        Console.Clear();
                         printTasks.MarkTaskComplete();
                         Console.Clear();
                         menu.PrintMenu();
@@ -55,6 +58,8 @@ namespace TaskList
                     case 5:
                         Console.WriteLine("Are you sure you want to quit?");
                         string answer = Console.ReadLine();
+                        Console.Clear();
+
                         if (answer == "y" || answer == "yes")
                         {
                             run = false;
@@ -66,8 +71,6 @@ namespace TaskList
                         break;
                 }
             }
-
-
         }
     }
 }
