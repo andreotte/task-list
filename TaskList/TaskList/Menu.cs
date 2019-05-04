@@ -37,7 +37,8 @@ namespace TaskList
 
             if ( userInput < 1 || userInput > MenuItems.Count)
             {
-                Console.WriteLine("invalid input");
+                Console.WriteLine("Invalid Input. Try again.");
+                PrintMenu();
                 return GetUserInput();
             }
             else

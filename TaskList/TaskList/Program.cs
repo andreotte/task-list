@@ -16,11 +16,10 @@ namespace TaskList
             List<string> menuItems = new List<string> { "List tasks", "Add task", "Delete task", "Mark task complete", "Quit" };
             Menu menu = new Menu(menuItems, "MAIN MENU");
             menu.PrintMenu();
-            TaskApp printTasks = new TaskApp();
-            printTasks.AddTask("make bed", "make bed really well", DateTime.Now);
-            printTasks.AddTask("bootcamp", "write kick-ass code", DateTime.Today);
-            printTasks.AddTask("dinner", "cook noodles", DateTime.Now);
-
+            TaskApp taskApp = new TaskApp();
+            taskApp.AddTask("make bed", "make bed really well", DateTime.Now);
+            taskApp.AddTask("bootcamp", "write kick-ass code", DateTime.Today);
+            taskApp.AddTask("dinner", "cook noodles", DateTime.Now);
 
             bool run = true;
             while (run)
@@ -31,27 +30,27 @@ namespace TaskList
                 {
                     case 1:
                         Console.Clear();
-                        printTasks.ListTasks();
+                        taskApp.ListTasks();
                         menu.PrintMenu();
                         break;
                     case 2:
-                        Console.WriteLine("Please enter task name: ");
-                        string taskName = Console.ReadLine();
-                        Console.WriteLine("Please enter task description: ");
-                        string taskDescription = Console.ReadLine();
-                        Console.WriteLine("Please enter task due date: ");
-                        DateTime taskDueDate = DateTime.Parse(Console.ReadLine());
-                        printTasks.AddTask(taskName, taskDescription, taskDueDate);
+                        //Console.WriteLine("Please enter task name: ");
+                        //string taskName = Console.ReadLine();
+                        //Console.WriteLine("Please enter task description: ");
+                        //string taskDescription = Console.ReadLine();
+                        //Console.WriteLine("Please enter task due date: ");
+                        //DateTime taskDueDate = DateTime.Parse(Console.ReadLine());
+                        taskApp.AddTask();
                         Console.Clear();
                         menu.PrintMenu();
                         break;
                     case 3:
-                        printTasks.DeleteTask();
+                        taskApp.DeleteTask();
                         menu.PrintMenu();
                         break;
                     case 4:
                         Console.Clear();
-                        printTasks.MarkTaskComplete();
+                        taskApp.ToggleTaskCompletion();
                         Console.Clear();
                         menu.PrintMenu();
                         break;
@@ -67,6 +66,8 @@ namespace TaskList
                         else
                         {
                             Console.WriteLine("You didn't say yes, so we are assuming no.");
+                            Console.WriteLine();
+                            menu.PrintMenu();
                         }
                         break;
                 }
