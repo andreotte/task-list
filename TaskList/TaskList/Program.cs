@@ -13,10 +13,12 @@ namespace TaskList
 
         static void Main(string[] args)
         {
+            // list of main menu items
             List<string> menuItems = new List<string> { "List tasks", "Add task", "Delete task", "Mark task complete", "Quit" };
             Menu menu = new Menu(menuItems, "MAIN MENU");
             menu.PrintMenu();
             TaskApp taskApp = new TaskApp();
+            // add some dummy tasks to the list
             taskApp.AddTask("make bed", "make bed really well", DateTime.Now);
             taskApp.AddTask("bootcamp", "write kick-ass code", DateTime.Today);
             taskApp.AddTask("dinner", "cook noodles", DateTime.Now);
@@ -24,37 +26,32 @@ namespace TaskList
             bool run = true;
             while (run)
             {
+                // ask the user to choose the action they would like to perform based on the main menu items
                 int userInput = menu.GetUserInput();
 
                 switch (userInput)
                 {
-                    case 1:
+                    case 1: // List Tasks
                         Console.Clear();
                         taskApp.ListTasks();
                         menu.PrintMenu();
                         break;
-                    case 2:
-                        //Console.WriteLine("Please enter task name: ");
-                        //string taskName = Console.ReadLine();
-                        //Console.WriteLine("Please enter task description: ");
-                        //string taskDescription = Console.ReadLine();
-                        //Console.WriteLine("Please enter task due date: ");
-                        //DateTime taskDueDate = DateTime.Parse(Console.ReadLine());
+                    case 2: // Add Task
                         taskApp.AddTask();
                         Console.Clear();
                         menu.PrintMenu();
                         break;
-                    case 3:
+                    case 3: // Delete Task
                         taskApp.DeleteTask();
                         menu.PrintMenu();
                         break;
-                    case 4:
+                    case 4: // Toggle Task Completion
                         Console.Clear();
                         taskApp.ToggleTaskCompletion();
                         Console.Clear();
                         menu.PrintMenu();
                         break;
-                    case 5:
+                    case 5: // Quit
                         Console.WriteLine("Are you sure you want to quit?");
                         string answer = Console.ReadLine();
                         Console.Clear();

@@ -20,6 +20,7 @@ namespace TaskList
 
         public void PrintMenu()
         {
+            // Print the menu items to the console
             Console.WriteLine(MenuTitle);
             for(int i = 1; i < (MenuItems.Count + 1); i++)
             {

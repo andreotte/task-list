@@ -8,13 +8,11 @@ namespace TaskList
 {
     class Task
     {
-        // declare global vars and Properties
         public string Name { get; set; }
         public string Description { get; set; }
         public DateTime DueDate { get; set; }
         public bool Completed { get; set; }
 
-        // Constructor
         public Task(string Name, string Description, DateTime DueDate, bool Completed)
         {
             this.Name = Name;
@@ -23,6 +21,7 @@ namespace TaskList
             this.Completed = Completed;
         }
 
+        // overload for importing tasks without completion information
         public Task(string Name, string Description, DateTime DueDate)
         {
             this.Name = Name;
